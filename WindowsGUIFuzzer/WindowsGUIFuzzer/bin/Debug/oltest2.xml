@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Peach xmlns="http://peachfuzzer.com/2012/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://peachfuzzer.com/2012/Peach /peach/peach.xsd">
+  <!-- TODO: Create data model -->
+  <DataModel name="TheDataModel">
+    <Blob />
+  </DataModel>
+  <!-- TODO: Create state model -->
+  <StateModel name="TheState" initialState="Initial">
+    <State name="Initial">
+      <Action type="output">
+        <DataModel ref="TheDataModel" />
+        <Data name="data" fileName="samples/*.bin" />
+      </Action>
+      <Action type="close" />
+      <Action type="call" method="LaunchViewer" publisher="Peach.Agent" />
+    </State>
+  </StateModel>
+  <!-- TODO: Configure Agent -->
+  <Agent name="TheAgent">
+    <Monitor class="WindowsDebugger">
+      <Param name="CommandLine" value="C:\Users\310253271\Downloads\Resume.pdf" />
+      <Param name="WinDbgPath" value="C:\Users\310253271\Downloads\dotnet-install.ps1" />
+      <Param name="StartOnCall" value="LaunchViewer" />
+      <Param name="NoCpuKill" value="true" />
+    </Monitor>
+    <Monitor class="RunCommand">
+      <Param name="Command" value="wait.bat" />
+      <Param name="When" value="OnStart" />
+    </Monitor>
+    <!-- Pause after a fault -->
+    <Monitor class="RunCommand">
+      <Param name="Command" value="wait.bat" />
+      <Param name="When" value="OnIterationStartAfterFault" />
+    </Monitor>
+    <Monitor class="RunCommand">
+      <Param name="Command" value="C:\Program Files\AutoHotkey\AutoHotkey.exe" />
+      <Param name="Arguments" value="C:\Users\310253271\Downloads\fo-dicom.4.0.1.nupkg" />
+      <Param name="When" value="OnIterationStart" />
+      <Param name="FaultOnNonZeroExit" value="true" />
+    </Monitor>
+  </Agent>
+  <Test name="Default">
+    <Agent ref="TheAgent" />
+    <StateModel ref="TheState" />
+    <!-- TODO: Configure a publisher -->
+    <Publisher class="File">
+      <Param name="FileName" value="C:\Users\310253271\Downloads\fo-dicom-development.zip" />
+    </Publisher>
+    <!-- OPTIONAL: Configure a strategy -->
+    <Strategy class="Random" />
+    <Logger class="File">
+      <Param name="Path" value="logs" />
+    </Logger>
+  </Test>
+</Peach>
+<!-- end -->

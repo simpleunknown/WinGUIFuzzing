@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsGUIFuzzer", "WindowsGUIFuzzer\WindowsGUIFuzzer.csproj", "{612C2BFD-0E74-4C06-984D-4B4D3531B798}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{612C2BFD-0E74-4C06-984D-4B4D3531B798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{612C2BFD-0E74-4C06-984D-4B4D3531B798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{612C2BFD-0E74-4C06-984D-4B4D3531B798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{612C2BFD-0E74-4C06-984D-4B4D3531B798}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00720A8B-A46B-4D0D-A59A-4FEABB8AC4CC}
+	EndGlobalSection
+EndGlobal
